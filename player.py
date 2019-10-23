@@ -16,7 +16,7 @@ class Player:
     damage = math.ceil(damage)
     self.health -= damage
     self.damageTaken = 1
-    self.ultCharge = min(1, self.ultCharge + (damage / 50))
+    self.ultCharge += math.floor(self.ultCharge + (damage / 1.5))
     if self.health <= 0:
       self.health = 0
     print(f"Player {self.name}: Took {damage} damage! {self.health} HP remaining")
