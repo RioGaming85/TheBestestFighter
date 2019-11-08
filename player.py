@@ -1,37 +1,35 @@
-import math
-
-MAX_HEALTH = 25
+from math import ceil, floor
 
 class Player:
-  def __init__(self, name, moves):
-    self.health = MAX_HEALTH
+  def __init__(self, name, classType):
+    self.health = int(classType.HP)
     self.name = name
-    self.moves = moves
+    self.classType = classType
+    self.moves = classType.moves
     self.damageTaken = 1
     self.ultCharge = 0
-    print(f"Player {self.name} HP {self.health}")
+    print(f"{self.name} HP {self.health}")
 
   def takeDamage(self, d):
     damage = d * self.damageTaken
-    damage = math.ceil(damage)
+    damage = ceil(damage)
     self.health -= damage
     self.damageTaken = 1
-    self.ultCharge += math.floor(self.ultCharge + (damage / 1.5))
+    self.ultCharge += floor(self.ultCharge + (damage / 1.5))
     if self.health <= 0:
       self.health = 0
-    print(f"Player {self.name}: Took {damage} damage! {self.health} HP remaining")
 
   def log(self, text):
-    print(f"Player {self.name}: {text}")
+    print(f"{self.name}: {text}")
 
   def prompt(self):
     print('\n')
     if self.health <= 0:
       self.health = 0
-    print(f"Player {self.name}: HP {self.health}\n-------------------------------------------")
-    for i, move in enumerate(self.moves):
-      print(f"{i} {move.name}")
-    selection = input(f"-------------------------------------------\nPlayer {self.name} move choice:\n > ")
+    print(f"{self.name}: HP {self.health}\n-------------------------------------------")
+    for i in range(0, len(self.classType.moves)):
+      print(f"{i} {self.classType.moves[i].name}")
+    selection = input(f"-------------------------------------------\n{self.name} move choice:\n > ")
     mid = 0
     try:
       mid = int(selection)
