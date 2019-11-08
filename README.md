@@ -5,7 +5,7 @@ A basic 1 on 1 fighter, but turn based.
  - Light attack
  - Heavy attack
  - Block
- - Glass Cannon
+ - Move with recoil, __*pkmn*__ style
  - Healing *(je suis Genji)*
  - Custom moves for each class
  - The Ultimate move
