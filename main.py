@@ -1,3 +1,4 @@
+#!/bin/python3
 from random import randint, choice
 from player import Player, displayMenu
 from cpuPlayer import cpuPlayer
