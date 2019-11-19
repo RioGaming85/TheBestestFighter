@@ -6,7 +6,7 @@ A basic 1 on 1 fighter, but turn based.
 - Multiple Moves!
 - Classes!
 - Ultimates!
-- An AI opponent! *woo*
+- An AI opponent! *woo!*
 
 ## Future Features:
 
