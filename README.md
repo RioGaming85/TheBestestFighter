@@ -10,5 +10,6 @@ A basic 1 on 1 fighter, but turn based.
 
 ## Future Features:
 
+- Multiple Difficulty Settings
 - GUI, if i can be bothered.
 - Or just ASCII art.
