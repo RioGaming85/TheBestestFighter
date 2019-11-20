@@ -13,10 +13,13 @@ class Move:
 		pass
 
 	def hit(self, target, player):
-		dmg = self.getDamage()
-		target.takeDamage(dmg)
+		try:
+			self.dmg = self.getDamage()
+		except:
+			self.dmg = self.getDamage
+		target.takeDamage(self.dmg)
 		print(f"{player.name}'s {self.name} hits!")
-		print(f"{target.name} took {dmg} damage! {target.health} HP remaining")
+		print(f"{target.name} took {self.dmg} damage! {target.health} HP remaining")
 
 	def run(self, target, player):
 		if randint(1, 100) / 100 <= self.chance:

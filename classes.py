@@ -34,7 +34,7 @@ class Cleric(Character):
 		self.name = 'Cleric'
 		punch = Move('Punch', 1.00, lambda: randint(3, 6), 3, '3 - 6')
 		smite = Move('Smite', 0.70, lambda: randint(8, 10), 2, '8 - 10')
-		healMove = heal(0.95,lambda:	randint(5, 8), 4, '5 - 8')
+		healMove = heal(0.95,lambda: randint(5, 8), 4, '5 - 8')
 		block = Block(1.00, 5, 'N/A')
 		
 		self.moves = [punch, smite, healMove, block]
@@ -59,3 +59,25 @@ class Goose(Character):
 
 		self.moves = [honk, honk, honk, honk]
 		self.HP = 7
+
+class Ranger(Character):
+	def __init__(self):
+		self.name = 'Ranger'
+		punch = Move('Punch', 1.00, lambda: randint(3, 6), 3, '3 - 6')
+		arrow = Move('Arrow', 0.80, lambda: randint(4, 12), 2, '4 - 12')
+		block = Block(1, 5, 'N/A')
+		boomArrow = recoil('Explosive Arrow', 0.20, lambda: randint(16, 24), 1, '16 - 24')
+
+		self.moves = [punch, arrow, block, boomArrow]
+		self.HP = 39
+
+class BS_Admin(Character):
+	def __init__(self):
+		self.name('F*** off, I win.')
+		punch = Move('Punch', 1.00, lambda: randint(3, 6), 3, '3 - 6')
+		hammer = Move('HAMMER OF GOD', 1.00, lambda: randint(20, 24), 2, '20 - 24')
+		block = Block(1, 5, 'N/A')
+		forceWin = Move('Win.exe', 1.00, lambda: randint(9999, 9999), 6, '9999')
+
+		self.moves = [punch, hammer, block, forceWin]
+		self.HP = 9999

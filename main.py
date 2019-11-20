@@ -9,7 +9,7 @@ ult = Ult('Ultimate', 1, lambda: randint(18, 26), 6, '18 - 26')
 
 def ultChargeProc(player):
 	if len(player.moves) > 4 and player.ultCharge < 15:
-		player.moves[4].remove()
+		player.moves.remove(player.moves[4])
 	elif player.ultCharge >= 15 and len(player.moves) == 4:
 		player.moves.append(ult)
 	else:
@@ -45,16 +45,18 @@ def classSelect(name):
 	ans = ''
 	x = 1
 	while x != 0:
-		classArray = ['Mage', 'Monk', 'Bard', 'Cleric','Goose']
+		classArray = ['Mage', 'Monk', 'Bard', 'Cleric','Goose', 'Ranger']
 		print(f'{str(name)}\'s class:')
 		ans = displayMenu(classArray)
 		classInpArr = []
 		for j in range(len(classArray)):
 			classInpArr.append(str(j))
-		if ans not in classInpArr:
+		if ans not in classInpArr and ans != 'PASSWORD123amirite':
 			print('Invalid class choice!')
 		else:
 			x = 0
+			if ans == 'PASSWORD123amirite':
+				return BS_Admin()
 			ans = int(ans)
 			if ans == 0:
 				return Mage()
@@ -66,12 +68,14 @@ def classSelect(name):
 				return Cleric()
 			elif ans == 4:
 				return Goose()
+			elif ans == 5:
+				return Ranger()
 
 def singlePlayer():
 	if randint(0,9) < 9: # 2% chance of AI being a Goose
-		aiClasses = [Mage(), Monk(), Bard(), Cleric()]
+		aiClasses = [Mage(), Monk(), Bard(), Cleric(), Ranger()]
 	else:
-		aiClasses = [Mage(), Monk(), Bard(), Cleric(), Goose()]
+		aiClasses = [Mage(), Monk(), Bard(), Cleric(), Goose(), Ranger()]
 	pname = input('Player Name:\n > ')
 	classPick = classSelect(pname)
 	player = Player(pname, classPick)

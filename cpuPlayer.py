@@ -11,7 +11,8 @@ class cpuPlayer:
 		print(f"{self.name}: HP = {self.health}, Class = {self.classType.name}")
 
 	def takeDamage(self, d):
-		damage = d * self.damageTaken
+		damTak = int(self.damageTaken)
+		damage = d * damTak
 		damage = ceil(damage)
 		self.health -= damage
 		self.damageTaken = 1
@@ -22,7 +23,8 @@ class cpuPlayer:
 			self.health = 0
 	
 	def ultDamage(self, d):
-		damage = d * self.damageTaken
+		damTak = int(self.damageTaken)
+		damage = d * damTak
 		damage = ceil(damage)
 		self.health -= damage
 		self.damageTaken = 1
