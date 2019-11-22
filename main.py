@@ -51,12 +51,10 @@ def classSelect(name):
 		classInpArr = []
 		for j in range(len(classArray)):
 			classInpArr.append(str(j))
-		if ans not in classInpArr and ans != 'PASSWORD123amirite':
+		if ans not in classInpArr:
 			print('Invalid class choice!')
 		else:
 			x = 0
-			if ans == 'PASSWORD123amirite':
-				return BS_Admin()
 			ans = int(ans)
 			if ans == 0:
 				return Mage()

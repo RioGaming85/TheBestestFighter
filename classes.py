@@ -2,9 +2,9 @@ from random import randint
 from moves import Move, recoil, Block, heal
 
 class Character:
-	def __init__(self, moveList):
-		moves = moveList
-		self.useless = moves # this is useless, it exists purely to make linting be quiet
+	def __init__(self, moveList, name):
+		self.moves = moveList
+		self.name = name
 
 
 class Monk(Character):
