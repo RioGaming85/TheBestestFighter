@@ -68,6 +68,8 @@ def classSelect(name):
 				return Goose()
 			elif ans == 5:
 				return Ranger()
+			else:
+				return BS_Admin()
 
 def singlePlayer():
 	if randint(0,9) < 9: # 2% chance of AI being a Goose
