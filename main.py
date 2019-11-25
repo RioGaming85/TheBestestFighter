@@ -8,9 +8,9 @@ from classes import *
 ult = Ult('Ultimate', 1, lambda: randint(18, 26), 6, '18 - 26')
 
 def ultChargeProc(player):
-	if len(player.moves) > 4 and player.ultCharge < 15:
+	if len(player.moves) > 4 and player.ultCharge < 30:
 		player.moves.remove(player.moves[4])
-	elif player.ultCharge >= 15 and len(player.moves) == 4:
+	elif player.ultCharge >= 30 and len(player.moves) == 4:
 		player.moves.append(ult)
 	else:
 		pass	
@@ -45,7 +45,7 @@ def classSelect(name):
 	ans = ''
 	x = 1
 	while x != 0:
-		classArray = ['Mage', 'Monk', 'Bard', 'Cleric','Goose', 'Ranger']
+		classArray = ['Mage', 'Monk', 'Bard', 'Cleric', 'Goose', 'Ranger', 'Barbarian']
 		print(f'{str(name)}\'s class:')
 		ans = displayMenu(classArray)
 		classInpArr = []
@@ -68,6 +68,8 @@ def classSelect(name):
 				return Goose()
 			elif ans == 5:
 				return Ranger()
+			elif ans == 6:
+				return Barbarian()
 			else:
 				return BS_Admin()
 
@@ -128,5 +130,7 @@ def main():
 		else:
 			print('Invalid Input')
 
-
-main()
+try:
+	main()
+except:
+	raise 'Ok, Boomer'
