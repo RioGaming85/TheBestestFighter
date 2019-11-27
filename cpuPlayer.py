@@ -17,8 +17,8 @@ class cpuPlayer:
 		self.health -= damage
 		self.damageTaken = 1
 		self.ultCharge += floor(self.ultCharge + (damage / 1.5))
-		if self.ultCharge >= 15:
-			self.ultCharge = 15
+		if self.ultCharge >= 30:
+			self.ultCharge = 30
 		if self.health <= 0:
 			self.health = 0
 	
@@ -45,7 +45,7 @@ class cpuPlayer:
 		print('\n')
 		if self.health <= 0:
 			self.health = 0
-		if self.ultCharge == 15:
+		if self.ultCharge == 30:
 			selection = '4' # If ult available, use ult
 		elif self.health <= (0.75 * self.classType.HP):
 			selection = choice(['0','1']) # punch or kick/fireball/rock/smite

@@ -2,16 +2,14 @@
 from random import randint, choice
 from player import Player, displayMenu
 from cpuPlayer import cpuPlayer
-from moves import Ult
-from classes import *
+from classes import BS_Admin, Mage, Monk, Bard, Cleric, Ranger, Barbarian, Goose
 
-ult = Ult('Ultimate', 1, lambda: randint(18, 26), 6, '18 - 26')
 
 def ultChargeProc(player):
 	if len(player.moves) > 4 and player.ultCharge < 30:
 		player.moves.remove(player.moves[4])
 	elif player.ultCharge >= 30 and len(player.moves) == 4:
-		player.moves.append(ult)
+		player.moves.append(player.classType.ult)
 	else:
 		pass	
 def process(player1, player2):
@@ -43,9 +41,9 @@ def process(player1, player2):
 
 def classSelect(name):
 	ans = ''
-	x = 1
-	while x != 0:
-		classArray = ['Mage', 'Monk', 'Bard', 'Cleric', 'Goose', 'Ranger', 'Barbarian']
+	check = 1
+	while check != 0:
+		classArray = ['Wizard', 'Monk', 'Bard', 'Cleric', 'Goose', 'Ranger', 'Barbarian']
 		print(f'{str(name)}\'s class:')
 		ans = displayMenu(classArray)
 		classInpArr = []
@@ -54,7 +52,7 @@ def classSelect(name):
 		if ans not in classInpArr:
 			print('Invalid class choice!')
 		else:
-			x = 0
+			check = 0
 			ans = int(ans)
 			if ans == 0:
 				return Mage()
@@ -74,10 +72,7 @@ def classSelect(name):
 				return BS_Admin()
 
 def singlePlayer():
-	if randint(0,9) < 9: # 2% chance of AI being a Goose
-		aiClasses = [Mage(), Monk(), Bard(), Cleric(), Ranger()]
-	else:
-		aiClasses = [Mage(), Monk(), Bard(), Cleric(), Goose(), Ranger()]
+	aiClasses = [Mage(), Monk(), Bard(), Cleric(), Ranger(), Barbarian(), Goose()]
 	pname = input('Player Name:\n > ')
 	classPick = classSelect(pname)
 	player = Player(pname, classPick)
@@ -130,7 +125,4 @@ def main():
 		else:
 			print('Invalid Input')
 
-try:
-	main()
-except:
-	raise 'Ok, Boomer'
+main()

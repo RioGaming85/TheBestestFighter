@@ -33,8 +33,8 @@ class Player:
 		self.health -= damage
 		self.damageTaken = 1
 		self.ultCharge += floor(self.ultCharge + (damage / 1.5))
-		if self.ultCharge >= 15:
-			self.ultCharge = 15
+		if self.ultCharge >= 30:
+			self.ultCharge = 30
 		if self.health <= 0:
 			self.health = 0
 	
@@ -61,7 +61,7 @@ class Player:
 		print('\n')
 		if self.health <= 0:
 			self.health = 0
-		print(f"{self.name}'s Turn:\nHP: {self.health}, Ult Charge: {floor((self.ultCharge / 15) * 100)}%")
+		print(f"{self.name}'s Turn:\nHP: {self.health}, Ult Charge: {floor((self.ultCharge / 30) * 100)}%")
 		selection = displayMoves(self.classType.moves)
 		mid = 0
 		try:

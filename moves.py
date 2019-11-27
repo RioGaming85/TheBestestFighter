@@ -58,7 +58,7 @@ class Ult(Move):
 		dmg = self.getDamage
 		target.ultDamage(dmg)
 		player.ultCharge = 0
-		print(f'{player.name} uses their Ultimate!')
+		print(f'{player.name} uses {self.name}!')
 		print(f'{target.name} took {dmg} damage! {target.health} HP remaining!')
 
 
