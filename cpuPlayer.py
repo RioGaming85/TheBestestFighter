@@ -48,7 +48,7 @@ class cpuPlayer:
 		if self.ultCharge == 30:
 			selection = '4' # If ult available, use ult
 		elif self.health <= (0.75 * self.classType.HP):
-			selection = choice(['0','1']) # punch or kick/fireball/rock/smite
+			selection = choice(['0','1']) # punch or kick/fireball/rock/smite/etc.
 		elif self.health <= (0.5 * self.classType.HP):
 			selection = choice(['0','1','2']) # same as above but can also block/heal
 		elif self.health <= (0.1 * self.classType.HP):
@@ -57,6 +57,7 @@ class cpuPlayer:
 			selection = '0' # if no other case applies, punch
 		
 		mid = 0
+		
 		try:
 			mid = int(selection)
 		except:

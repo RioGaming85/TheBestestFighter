@@ -5,7 +5,7 @@ def displayMoves(moves):
 	chanceSpace = ['   ',' ','']
 	print('  | Move Name	    | Chance | Damage')
 	print('-------------------------------------------')
-	for i in range(len(moves)): print(f'{i} | {moves[i].name}{spacing[len(moves[i].name)-1]} |  {int(moves[i].chance*100)}%{chanceSpace[len(str(int(moves[i].chance*100)))-1]}  | {moves[i].dmgRange}')
+	for i in range(0, len(moves)-1): print(f'{i} | {moves[i].name}{spacing[len(moves[i].name)-1]} |  {int(moves[i].chance*100)}%{chanceSpace[len(str(int(moves[i].chance*100)))-1]}  | {moves[i].dmgRange}')
 	print('-------------------------------------------')
 	return input(' > ').upper()
 
